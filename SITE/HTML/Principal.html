@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Faces - Página Principal</title>
+    <link rel="stylesheet" href="CSS/Estilo.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <img src="IMAGENS/smartfaces.png" alt="Smart Faces">
+        </div>
+        <nav>
+            <a href="Principal.html">Home</a>
+            <a href="CadastroUsuario.html">Usuários</a>
+            <a href="#">Mensagens</a>
+            <a href="#">Locais</a>
+        </nav>
+    </div>
+    <div class="main-content">
+        <h1>Página Principal</h1>
+        <p>Olá, Admin</p>
+        <div class="stats">
+            <div class="stat">
+                <p class="stat-number" id="menCount">00</p>
+                <p>Homens</p>
+            </div>
+            <div class="stat">
+                <p class="stat-number" id="womenCount">00</p>
+                <p>Mulheres</p>
+            </div>
+            <div class="stat">
+                <p class="stat-number" id="totalCount">00</p>
+                <p>Total</p>
+            </div>
+        </div>
+        <div class="chart">
+            <!-- Gráfico irá aqui -->
+        </div>
+        <div class="messages">
+            <p>mensagem exemplo usuários</p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    var users = JSON.parse(localStorage.getItem('users')) || [];
+    var menCount = users.filter(user => user.gender === 'male').length;
+    var womenCount = users.filter(user => user.gender === 'female').length;
+    var totalCount = users.length;
+
+    document.getElementById('menCount').innerText = menCount.toString().padStart(2, '0');
+    document.getElementById('womenCount').innerText = womenCount.toString().padStart(2, '0');
+    document.getElementById('totalCount').innerText = totalCount.toString().padStart(2, '0');
+});
+
+    </script>
+</body>
+</html>

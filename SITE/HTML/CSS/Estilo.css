@@ -1,0 +1,373 @@
+/* Estilo.css */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    /*background-color: #0c050a;*/
+    background-color: #181818;
+}
+
+h1 {
+    color: #ffffff;
+}
+p{
+    color: #ffffff; 
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    background-color: #e0d0f8;
+    padding: 70px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    max-width: 800px;
+    height: 70vh; /* O container ocupa 80% da altura da viewport */
+}
+
+
+.login-form input {
+    margin: 10px -10px;
+    padding: 15px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+}
+
+.login-form button {
+    margin: 50px 0;
+    padding: 13px;
+    border-radius: 25px;
+    border: none;
+    background-color: #5b00c4;
+    color: #fff;
+    width: 100%;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    font-size: 20px;
+}
+
+.login-form button:hover {
+    background-color: #3f0486;
+}
+
+.sidebar {
+    width: 30%;
+    background-color: #ffffffe1;
+    color: #fff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .logo img {
+    width: 100%; 
+    margin-bottom: 20px;
+    display: block;
+    /*background-color: red;*/
+    margin-left: 0; 
+}
+
+.login-container {
+    min-height: 50%;
+    width: 100%;
+    background-color: #ffffffe1;
+    color: #fff;
+    padding: 100px;
+    box-shadow: 4px 4px 20px rgba(255, 255, 255, 0.199);
+}
+
+
+.logo-login img {
+    width: 100%; 
+    margin-bottom: 100px;
+    display: flex;
+    margin-left: 0; 
+    margin-top: 40px;
+}
+
+.sidebar nav a {
+    text-shadow: #000000 1.8px 0.8px;
+    background-color: #990e6f;
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar nav a:hover {
+    background-color: #4a00a3;
+}
+
+.main-content {
+    width: 80%;
+    padding: 40px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.stat {
+    background-color: #007bff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stat-number {
+    font-size: 2em;
+    color: #000000;
+}
+
+.chart, .messages, .user-list {
+    background-color: #007bff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user-actions button, .user-actions input {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 25px;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,)
+}
+
+/* COR BOTAO */
+.user-actions .add-btn {
+    background-color: #5b00c4;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-actions .add-btn:hover {
+    background-color: #4a00a3;
+}
+
+.user-actions .search-btn {
+    background-color: #007bff;
+    color: #fff; 
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-actions .search-btn:hover {
+    background-color: #0056b3;
+}
+
+
+.user-actions input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+/*==================================================================================================================================================================================================*/
+
+/*CRUD*/
+
+/* Modal */
+.main-content {
+    width: 70%;
+    padding: 40px;
+    color: #fff;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.user-actions button, .user-actions input {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+}
+
+.user-actions .add-btn {
+    background-color: #5b00c4;
+    color: #fff;
+    cursor: pointer;
+}
+
+.user-actions .search-btn {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.user-list {
+    background-color: #007bff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.user-list .user {
+    background-color: #fff;
+    color: #000;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-list .user .edit-btn,
+.user-list .user .delete-btn {
+    background-color: #5b00c4;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.modal-content label {
+    display: block;
+    margin-top: 10px;
+}
+
+.modal-content input,
+.modal-content select,
+.modal-content button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.user-list .user {
+    background-color: #fff;
+    color: #000;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px; /* Espaço entre os elementos */
+}
+
+.user-list .user .user-name,
+.user-list .user .user-email {
+    flex: 1; /* Os nomes e emails irão ocupar todo o espaço disponível */
+    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adiciona "..." ao final do texto que ultrapassa o espaço disponível */
+    padding-right: 10px; /* Espaço entre o texto e os botões */
+}
+
+.user-list .user .edit-btn,
+.user-list .user .delete-btn {
+    background-color: #5b00c4;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+    flex-shrink: 0; /* Impede que os botões encolham */
+}
+
+
+.user-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.user-info .nome,
+.user-info .email {
+    flex: 1;
+    text-align: center;
+}
+
+.user-info .nome {
+    border-right: 1px solid #ccc; /* Adiciona uma linha entre nome e email */
+    padding-right: 50px;
+}

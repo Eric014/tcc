@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Faces - Cadastro de Usuários</title>
+    <link rel="stylesheet" href="CSS/Estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <img src="IMAGENS/smartfaces.png" alt="Smart Faces">
+        </div>
+        <nav>
+            <a href="Principal.html">Home</a> 
+            <a href="#">Usuários</a>
+            <a href="#">Mensagens</a>
+            <a href="#">Locais</a>
+        </nav>
+    </div>
+    <div class="main-content">
+        <h1>Cadastro Usuários</h1>
+        <div class="user-actions">
+            <button class="add-btn" id="addUserButton">+ adicionar</button>
+            <input type="text" id="searchUser" placeholder="Buscar">
+            <button class="search-btn" id="searchUserButton">Buscar</button>
+        </div>
+
+        <div class="user-info">
+            <p class="nome">Nome</p>
+            <p class="email">Email</p>
+        </div>
+
+        <div class="user-list" id="userList">
+            <!-- Usuários serão adicionados aqui -->
+        </div>
+    </div>
+    <script>
+        document.getElementById('addUserButton').addEventListener('click', function() {
+            var userName = prompt("Digite o nome do usuário:");
+            var userEmail = prompt("Digite o e-mail do usuário:");
+            var userPassword = prompt("Digite a senha do usuário:");
+
+            if (userName && userEmail && userPassword) {
+                var users = JSON.parse(localStorage.getItem('users')) || [];
+
+                users.push({ name: userName, email: userEmail, password: userPassword });
+                localStorage.setItem('users', JSON.stringify(users));
+
+                renderUserList();
+            }
+        });
+
+        document.getElementById('searchUserButton').addEventListener('click', function() {
+            var query = document.getElementById('searchUser').value.toLowerCase();
+            var users = JSON.parse(localStorage.getItem('users')) || [];
+            var filteredUsers = users.filter(user => user.name.toLowerCase().includes(query) || user.email.toLowerCase().includes(query));
+
+            renderUserList(filteredUsers);
+        });
+
+        function renderUserList(users = null) {
+            var userList = document.getElementById('userList');
+            userList.innerHTML = '';
+
+            users = users || JSON.parse(localStorage.getItem('users')) || [];
+
+            users.forEach(user => {
+                var userDiv = document.createElement('div');
+                userDiv.className = 'user';
+                userDiv.innerHTML = `
+                    <span class="user-name">${user.name}</span>
+                    <span class="user-email">${user.email}</span>
+                    <button class="edit-btn">Editar</button>
+                    <button class="delete-btn">Excluir</button>
+                `;
+                userList.appendChild(userDiv);
+
+                addEventListenersToUser(userDiv);
+            });
+        }
+
+        function addEventListenersToUser(userDiv) {
+            userDiv.querySelector('.edit-btn').addEventListener('click', function() {
+                var userName = userDiv.querySelector('.user-name');
+                var userEmail = userDiv.querySelector('.user-email');
+                var userPassword = prompt("Digite a nova senha do usuário:");
+
+                var newUserName = prompt("Editar nome do usuário:", userName.textContent);
+                var newUserEmail = prompt("Editar e-mail do usuário:", userEmail.textContent);
+
+                if (newUserName && newUserEmail && userPassword) {
+                    var users = JSON.parse(localStorage.getItem('users')) || [];
+                    var user = users.find(u => u.name === userName.textContent && u.email === userEmail.textContent);
+
+                    if (user) {
+                        user.name = newUserName;
+                        user.email = newUserEmail;
+                        user.password = userPassword;
+                        localStorage.setItem('users', JSON.stringify(users));
+                        renderUserList();
+                    }
+                }
+            });
+
+            userDiv.querySelector('.delete-btn').addEventListener('click', function() {
+                if (confirm("Você tem certeza que deseja excluir este usuário?")) {
+                    var userName = userDiv.querySelector('.user-name').textContent;
+                    var userEmail = userDiv.querySelector('.user-email').textContent;
+                    var users = JSON.parse(localStorage.getItem('users')) || [];
+
+                    users = users.filter(user => user.name !== userName || user.email !== userEmail);
+                    localStorage.setItem('users', JSON.stringify(users));
+
+                    renderUserList();
+                }
+            });
+        }
+
+        // Renderizar a lista de usuários ao carregar a página
+        document.addEventListener('DOMContentLoaded', function() {
+            renderUserList();
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    if (name.length > 20) {
+        alert("O nome não pode ter mais de 20 caracteres.");
+        event.preventDefault();
+    }
+
+    if (email.length > 30) {
+        alert("O email não pode ter mais de 30 caracteres.");
+        event.preventDefault();
+    }
+
+    if (password.length > 15) {
+        alert("A senha não pode ter mais de 15 caracteres.");
+        event.preventDefault();
+    }
+});
+
+
+    </script>
+</body>
+</html>

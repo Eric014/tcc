@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Faces - Login</title>
+    <link rel="stylesheet" href="CSS/Estilo.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo-login">
+            <img src="IMAGENS/smartfaces.png" alt="Smart Faces">
+        </div>
+        <div class="login-form">
+            <input type="text" id="username" placeholder="usuário">
+            <input type="password" id="password" placeholder="senha">
+            <button id="loginButton">Entrar</button>
+        </div>
+    </div>
+    <script>
+        document.getElementById('loginButton').addEventListener('click', function() {
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+
+    if (!username || !password) {
+        alert('Por favor, preencha todos os campos.');
+        return;
+    }
+
+    // Exemplo de lista de usuários (em um sistema real, isso viria de um backend)
+    var users = [
+        {username: 'admin', password: 'admin'},
+        {username: 'user1', password: 'password1'}
+    ];
+
+    var userFound = users.find(user => user.username === username && user.password === password);
+
+    if (userFound) {
+        window.location.href = 'Principal.html';
+    } else {
+        alert('Usuário ou senha incorretos');
+    }
+});
+
+    </script>
+</body>
+</html>
